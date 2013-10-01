@@ -1,0 +1,7 @@
+/vendor/psr/
+/vendor/pimple/
+/vendor/symfony/
+/vendor/autoload.php
+/vendor/silex/
+/vendor/composer/
+/composer.lock
