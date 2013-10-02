@@ -5,3 +5,4 @@
 /vendor/silex/
 /vendor/composer/
 /composer.lock
+/vendor/twig/

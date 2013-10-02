@@ -1,0 +1,37 @@
+#container {
+  width:1000px;
+  margin:auto;
+  overflow: hidden;
+}
+
+#container #form {
+  width: 300px;
+  margin: 20px auto;
+}
+
+#container #form form {
+  text-align: center;
+}
+
+#container #form form input {
+  margin: auto;
+  display:inline-block;
+}
+
+#container #form form input#query {
+  display:block;
+}
+
+#container #content #results .result {
+  margin: 10px 0;
+}
+
+#container #content #results .result .title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 26px;
+}
+
+#container #content #results .result .content {
+  text-align: justify;
+}
