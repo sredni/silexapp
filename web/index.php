@@ -2,22 +2,24 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+use Symfony\Component\HttpFoundation\Request;
+
 $app = new Silex\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 
-$app->get('/{keyword}', function ($keyword = null) use ($app) {
+$app->get('/', function (Request $request) use ($app) {
+  $keyword = $request->get('q');
   $results = Array();
   $xml = simplexml_load_file('http://xlab.pl/feed/');
   
   if ($xml) {
-    $pattern = '/' . htmlspecialchars($keyword, ENT_QUOTES) . '/';
+    $pattern = '/' . htmlspecialchars($keyword, ENT_QUOTES) . '/i';
     
     foreach ($xml->channel->item as $item) {
       $add = true;
-      
       
       if (
         $keyword && !preg_match($pattern, $item->description->__toString())
@@ -38,6 +40,6 @@ $app->get('/{keyword}', function ($keyword = null) use ($app) {
     'results' => $results,
     'keyword' => $keyword,
   ));
-})->assert('keyword', '[a-zA-Z0-9]*');
+});
 
 $app->run();

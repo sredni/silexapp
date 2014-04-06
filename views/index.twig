@@ -2,17 +2,14 @@
 <html>
   <head>
     <title>Simple silex app</title>
-    <script src="/js/jquery-1.10.2.min.js"></script>
-    <script src="/js/app.js"></script>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <div id="container">
       <div id="form">
-        <form action="/">
-          <input id="query" value="{{ keyword }}"/>
+        <form method="get">
+          <input name="q" id="keywords" value="{{ keyword }}"/>
           <input type="submit" value="Znajdź"/>
-          <input type="reset" id="reset" value="Wyczyść"/>
         </form>
       </div>
       <div id="content">
